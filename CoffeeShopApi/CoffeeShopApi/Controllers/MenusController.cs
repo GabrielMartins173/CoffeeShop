@@ -12,7 +12,7 @@ namespace CoffeeShopApi.Controllers
     [ApiController]
     public class MenusController : ControllerBase
     {
-        CoffeeShopDbContext _coffeeShopDbContext;
+        private CoffeeShopDbContext _coffeeShopDbContext;
 
         public MenusController(CoffeeShopDbContext coffeeShopDbContext)
         {
