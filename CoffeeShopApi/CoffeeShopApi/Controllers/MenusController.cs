@@ -26,6 +26,19 @@ namespace CoffeeShopApi.Controllers
             return Ok(menus);
         }
 
+        [HttpGet("{id}")]
+        public IActionResult GetMenu(int id)
+        {
+            var menu = _coffeeShopDbContext.Menus.Include("SubMenus").FirstOrDefault(m=>m.Id == id);
 
+            if (menu == null)
+            {
+                return NotFound("We can't found a menu with this id...");
+            }
+            else
+            {
+                return Ok(menu);
+            }
+        }
     }
 }
